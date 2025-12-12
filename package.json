@@ -1,0 +1,24 @@
+{
+  "name": "imagem-personalizada-docker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/walterbento/Imagem-Personalizada-Docker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/walterbento/Imagem-Personalizada-Docker/issues"
+  },
+  "homepage": "https://github.com/walterbento/Imagem-Personalizada-Docker#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
