@@ -6,14 +6,20 @@ FROM node:${NODE_VERSION}
 ENV PORT=3001
 ENV MESSAGE="Hello Docker"
 
+WORKDIR /app
+
+#Essa linha serve para copiar tudo q esta no package.json para o container
+# de formas q n seja necessario rodar o NPM INSTALL e o restante do que vem por baixo
+COPY package.json ./
+RUN npm install
+
+COPY . .
+
 #Definir nosso usuario como NAO administrador: [ docker exec -it id_container bash ] e volte a fazer  buiild
 #tambem pode comentar a primeir alinha e a sgunda linha coloca um outa porta tipo 3001 ao inves de mynode
 RUN useradd -m mynode
 USER mynode
 
-WORKDIR /app
-
-COPY . .
 
 # Healthcheck para verificar se o container esta funcionando corretamente
 HEALTHCHECK --interval=10s --timeout=5s --start-period=5s --retries=3 \
