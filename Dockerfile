@@ -18,6 +18,7 @@ COPY . .
 #Definir nosso usuario como NAO administrador: [ docker exec -it id_container bash ] e volte a fazer  buiild
 #tambem pode comentar a primeir alinha e a sgunda linha coloca um outa porta tipo 3001 ao inves de mynode
 RUN useradd -m mynode
+RUN chown -R mynode /app
 USER mynode
 
 
@@ -25,4 +26,9 @@ USER mynode
 HEALTHCHECK --interval=10s --timeout=5s --start-period=5s --retries=3 \
   CMD ["curl", "-f", "http://localhost:3001/"] || exit 1
 
+
+# os volumes vao ser guardados nessa pagina "/data"
+VOLUME ["/data"]
+
+EXPOSE 3001
 CMD ["node", "index.js"]
